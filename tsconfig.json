@@ -8,5 +8,9 @@
         "alias": {
             "@mui/styled-engine": "@mui/styled-engine-sc"
         }
+    },
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "lib": ["dom", "esnext"],               
     }
 }
