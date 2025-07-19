@@ -12,7 +12,7 @@
 
     color-scheme: light dark;
 
-    --transition: 0.3s ease;
+    --transition: 0.3s;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -31,7 +31,7 @@
     --text-100: #fff;
     --text-200: #666667;
 
-    --bg-100: #eff6ff;
+    --bg-100: #e5fbec;
 
     --neutral-100: #ccc;
 }
@@ -42,10 +42,10 @@ a {
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-color: var(--bg-100);
-    color: var(--accent-100);
+    overflow-x: hidden;
 }
 
 #root {
