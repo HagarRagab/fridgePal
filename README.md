@@ -4,7 +4,7 @@ FridgePal is a modern and responsive **Smart Grocery Tracker** built with **Reac
 
 ---
 
-🔗 [Live Demo](https://fridgepal.com)
+🔗 [Live Demo](https://fridge-pal-eight.vercel.app/)
 
 ![fridgepal overview](/public/fridgepal-overview.jpg)
 
@@ -54,25 +54,126 @@ FridgePal is a modern and responsive **Smart Grocery Tracker** built with **Reac
 
 ## 📂 Project Structure
 
-FridgePal/
-├── public/ # Static assets
-├── src/
-│ ├── components/ # Shared, Home, and Dashboard UI components
-│ ├── context/ # Theme, Auth, Notification contexts
-│ ├── hooks/ # Custom React hooks for API and logic
-│ ├── lib/ # API configuration for Appwrite & Spoonacular
-│ ├── private/ # Authenticated routes/pages
-│ ├── public/ # Publicly accessible pages (Home, Auth)
-│ ├── types/ # Global TypeScript types
-│ ├── utils/ # Helpers, constants, theme utils
-│ ├── App.tsx # Root component
-│ ├── main.tsx # ReactDOM entry point
-│ └── index.css # Global styles
-├── .env.local # API keys and config (excluded from Git)
-├── vite.config.ts # Vite configuration
-├── package.json
-├── tsconfig.json
-└── README.md
+-   .env.local
+-   .gitignore
+-   eslint.config.js
+-   index.html
+-   package-lock.json
+-   package.json
+-   public
+-   README.md
+-   src
+    -   App.tsx
+    -   components
+        -   dashboard
+            -   AlertDialog.tsx
+            -   CardContainer.tsx
+            -   CardContentHeading.tsx
+            -   CardsGroup.tsx
+            -   FilterMenu.tsx
+            -   FormDialog.tsx
+            -   ingredientsList.tsx
+            -   InventoryCard.tsx
+            -   InventoryForm.tsx
+            -   LikedRecipeCard.tsx
+            -   NavTabs.tsx
+            -   PageContainer.tsx
+            -   PageHeading.tsx
+            -   PageTitle.tsx
+            -   RecipeCard.tsx
+            -   RecipeInfo.tsx
+            -   RecipeInfoChip.tsx
+            -   RecipeIngredientsTable.tsx
+        -   home
+            -   BenefitCard.tsx
+            -   BenefitsSection.tsx
+            -   Footer.tsx
+            -   HeroSection.tsx
+            -   HowItWorks.tsx
+            -   ImpactCard.tsx
+            -   JoinUsSection.tsx
+            -   SectionContainer.tsx
+            -   SectionTitle.tsx
+            -   SocialMediaLink.tsx
+            -   UseStep.tsx
+        -   shared
+            -   AccountTooltip.tsx
+            -   BackButton.tsx
+            -   ContainedActionButton.tsx
+            -   ExpirationNotifications.tsx
+            -   GlassPaper.tsx
+            -   Header.tsx
+            -   LinkText.tsx
+            -   Logo.tsx
+            -   LogoIcon.tsx
+            -   NoResult.tsx
+            -   NotificationTooltip.tsx
+            -   PaginationItems.tsx
+            -   PasswordInput.tsx
+            -   Settings.tsx
+            -   Spinner.tsx
+            -   TextInput.tsx
+            -   TooltipContainer.tsx
+    -   context
+        -   AuthContext.tsx
+        -   NotificationContext.tsx
+        -   ThemeContext.tsx
+    -   hooks
+        -   useCategories.ts
+        -   useCreateAccount.ts
+        -   useDeleteInventoryItem.ts
+        -   useGetCurrentUser.ts
+        -   useGetInventory.ts
+        -   useInventoryItem.ts
+        -   useLikeRecipe.ts
+        -   useLoginUser.ts
+        -   useLogout.ts
+        -   usePagination.ts
+        -   useRecipe.ts
+        -   useRecipes.ts
+        -   useToggleLikeRecipe.ts
+        -   useUnlikeRecipe.ts
+    -   index.css
+    -   lib
+        -   appwrite
+            -   api.ts
+            -   config.ts
+        -   spoonacular
+            -   api.ts
+    -   main.tsx
+    -   private
+        -   pages
+            -   AddItem.tsx
+            -   AuthCallback.tsx
+            -   Inventory.tsx
+            -   Likes.tsx
+            -   NotificationsExpired.tsx
+            -   NotificationsExpireSoon.tsx
+            -   RecipeDetails.tsx
+            -   WhatToCook.tsx
+        -   RootLayout.tsx
+    -   ProtectedRoute.tsx
+    -   public
+        -   AuthLayout.tsx
+        -   pages
+            -   Home.tsx
+            -   LogIn.tsx
+            -   PageNotFound.tsx
+            -   SignUp.tsx
+    -   theme.d.ts
+    -   types
+        -   index.ts
+    -   utils
+        -   constants.ts
+        -   helpers.ts
+        -   queryKeys.ts
+        -   theme.ts
+        -   utils.tsx
+    -   vite-env.d.ts
+-   tsconfig.app.json
+-   tsconfig.json
+-   tsconfig.node.json
+-   vite.config.ts
 
 ---
 
