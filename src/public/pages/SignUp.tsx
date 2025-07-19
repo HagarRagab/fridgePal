@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import LinkText from "../../components/shared/LinkText";
 import PasswordField from "../../components/shared/PasswordInput";
 import { useCreateAccount } from "../../hooks/useCreateAccount";
+import type { TNewUser } from "../../types";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -100,7 +101,7 @@ function SignUp() {
                 }
             />
 
-            <PasswordField
+            <PasswordField<TNewUser>
                 register={register}
                 error={errors.password?.message}
             />

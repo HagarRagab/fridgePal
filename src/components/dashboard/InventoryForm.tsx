@@ -34,8 +34,9 @@ type InventoryFormProps = {
 function InventoryForm({ children, inventory }: InventoryFormProps) {
     const { categories, isLoading: isLoadingCategories } = useCategories();
 
-    const { inventoryMutation, isPending: isMutatingInventory } =
-        useInventoryItem(inventory ? "update" : "create");
+    const { inventoryMutation } = useInventoryItem(
+        inventory ? "update" : "create"
+    );
 
     const { user } = useAuthContext();
 

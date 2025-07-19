@@ -9,21 +9,17 @@ import {
     OutlinedInput,
 } from "@mui/material";
 import { useState } from "react";
-import type { UseFormRegister } from "react-hook-form";
-import type { TNewUser } from "../../types";
+import type { Path, UseFormRegister } from "react-hook-form";
 
-type PasswordInputProps = {
-    register: UseFormRegister<
-        | TNewUser
-        | {
-              email: string;
-              password: string;
-          }
-    >;
+type PasswordInputProps<T extends { password: string }> = {
+    register: UseFormRegister<T>;
     error?: string;
 };
 
-function PasswordInput({ register, error }: PasswordInputProps) {
+function PasswordInput<T extends { password: string }>({
+    register,
+    error,
+}: PasswordInputProps<T>) {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -50,7 +46,7 @@ function PasswordInput({ register, error }: PasswordInputProps) {
                 id="password"
                 label={!error ? "Password" : "Error"}
                 type={showPassword ? "text" : "password"}
-                {...register("password", {
+                {...register("password" as Path<T>, {
                     required: "Please add password",
                     validate: (value: string) =>
                         value.length >= 8 ||

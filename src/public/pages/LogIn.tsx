@@ -96,7 +96,7 @@ function LogIn() {
                             : ""
                     }
                 />
-                <PasswordInput
+                <PasswordInput<{ email: string; password: string }>
                     register={register}
                     error={errors.password?.message}
                 />
