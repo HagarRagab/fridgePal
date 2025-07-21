@@ -1,23 +1,24 @@
 import { useNavigate, useSearchParams } from "react-router";
 
-import PageContainer from "../../components/dashboard/PageContainer";
-import PageTitle from "../../components/dashboard/PageTitle";
+import PageContainer from "../dashboard/PageContainer";
+import PageTitle from "../dashboard/PageTitle";
 import { useAuthContext } from "../../context/AuthContext";
 import { useGetInventory } from "../../hooks/useGetInventory";
 import { MAX_ITEMS } from "../../utils/constants";
-import PaginationItems from "../../components/shared/PaginationItems";
-import Spinner from "../../components/shared/Spinner";
-import CardsGroup from "../../components/dashboard/CardsGroup";
+import PaginationItems from "./PaginationItems";
+import Spinner from "./Spinner";
+import CardsGroup from "../dashboard/CardsGroup";
 import type { Models } from "appwrite";
 import { Grid } from "@mui/material";
-import InventoryCard from "../../components/dashboard/InventoryCard";
+import InventoryCard from "../dashboard/InventoryCard";
 import type { inventoryItemsConditions } from "../../types";
+import BackButton from "./BackButton";
 
-type ExpirationNotificationsProps = {
+type NotificationsProps = {
     condition: inventoryItemsConditions;
 };
 
-function ExpirationNotifications({ condition }: ExpirationNotificationsProps) {
+function Notifications({ condition }: NotificationsProps) {
     const [searchParams] = useSearchParams();
     const curPage = Number(searchParams.get("page")) || 1;
     const { user, isLoading: isLoadingUser } = useAuthContext();
@@ -38,6 +39,7 @@ function ExpirationNotifications({ condition }: ExpirationNotificationsProps) {
     }
     return (
         <PageContainer>
+            <BackButton />
             <PageTitle
                 title="Notifications"
                 subTitle={`${inventory?.total} items in your fridge will expire soon`}
@@ -59,4 +61,4 @@ function ExpirationNotifications({ condition }: ExpirationNotificationsProps) {
     );
 }
 
-export default ExpirationNotifications;
+export default Notifications;

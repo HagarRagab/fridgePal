@@ -161,6 +161,7 @@ export async function createInventoryItem(inventoryItem: TInventoryItem) {
 
 // Update inventory item
 export async function updateInventoryItem(inventoryItem: TInventoryItem) {
+    console.log(inventoryItem);
     try {
         const result = await databases.updateDocument(
             appwriteConfig.databasesId,
@@ -211,14 +212,13 @@ export async function getInventoryItems({
     categoryId?: string;
     condition?: inventoryItemsConditions;
 }) {
-    console.log(from);
     const now = new Date().toISOString();
     const nextWeek = addDays(new Date(), 7).toISOString();
 
     const query = [Query.equal("creator", userId)];
 
-    if (from) {
-        query.push(Query.limit(MAX_ITEMS), Query.offset(from));
+    if (from !== undefined) {
+        query.push(Query.offset(from), Query.limit(MAX_ITEMS));
     }
     if (categoryId) query.push(Query.equal("category", categoryId));
     if (condition === "expireSoon") {

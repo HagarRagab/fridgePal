@@ -6,7 +6,6 @@ import type { TInventoryItem } from "../types";
 import { QUERY_KEYS } from "../utils/queryKeys";
 
 export function useInventoryItem(type: "create" | "update") {
-    // Get QueryClient from the context
     const queryClient = useQueryClient();
 
     const { mutate: inventoryMutation, isPending } = useMutation({
@@ -18,10 +17,8 @@ export function useInventoryItem(type: "create" | "update") {
 
         onSuccess: () => {
             queryClient.invalidateQueries({
-                queryKey: [
-                    QUERY_KEYS.GET_INVENTORY_ITEMS,
-                    QUERY_KEYS.GET_CURRENT_USER,
-                ],
+                queryKey: [QUERY_KEYS.GET_INVENTORY_ITEMS],
+                exact: false,
             });
             toast(
                 `Inventory item was ${

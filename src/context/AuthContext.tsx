@@ -31,11 +31,10 @@ const AuthContext = createContext(INIT_STATE);
 function AuthProvider({ children }: { children: ReactNode }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(INIT_USER);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     async function checkAuthUser() {
         try {
-            setIsLoading(true);
             const currentUser = await getCurrentUser();
 
             if (!currentUser) {

@@ -21,9 +21,9 @@ function SignUp() {
         reset,
     } = useForm({
         defaultValues: {
-            name: "Demo User",
-            email: "bahaf63924@iamtile.com",
-            password: "12345678",
+            name: "",
+            email: "",
+            password: "",
         },
     });
 

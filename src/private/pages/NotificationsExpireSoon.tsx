@@ -1,7 +1,7 @@
-import ExpirationNotifications from "../../components/shared/ExpirationNotifications";
+import Notifications from "../../components/shared/Notifications";
 
 function NotificationsExpireSoon() {
-    return <ExpirationNotifications condition="expireSoon" />;
+    return <Notifications condition="expireSoon" />;
 }
 
 export default NotificationsExpireSoon;

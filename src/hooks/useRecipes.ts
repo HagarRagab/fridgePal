@@ -13,5 +13,9 @@ export function useRecipes(ingredients?: string) {
         enabled: !!ingredients,
     });
 
-    return { recipes, isLoading, error };
+    return {
+        recipes,
+        isLoading,
+        error,
+    };
 }

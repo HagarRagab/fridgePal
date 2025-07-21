@@ -3,9 +3,10 @@ import { Box, CircularProgress, type SxProps } from "@mui/material";
 type SpinnerProps = {
     size?: number;
     sx?: SxProps;
+    ref?: (node?: Element | null | undefined) => void;
 };
 
-function Spinner({ size, sx }: SpinnerProps) {
+function Spinner({ size, sx, ref }: SpinnerProps) {
     return (
         <Box
             component="div"
@@ -15,6 +16,7 @@ function Spinner({ size, sx }: SpinnerProps) {
                 justifyContent: "center",
                 ...sx,
             }}
+            ref={ref}
         >
             <CircularProgress size={size} />
         </Box>

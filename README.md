@@ -100,7 +100,7 @@ FridgePal is a modern and responsive **Smart Grocery Tracker** built with **Reac
             -   AccountTooltip.tsx
             -   BackButton.tsx
             -   ContainedActionButton.tsx
-            -   ExpirationNotifications.tsx
+            -   Notifications.tsx
             -   GlassPaper.tsx
             -   Header.tsx
             -   LinkText.tsx

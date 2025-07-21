@@ -1,6 +1,7 @@
 import {
     createContext,
     useContext,
+    useEffect,
     useState,
     type Dispatch,
     type ReactNode,
@@ -18,7 +19,15 @@ const INIT_STATE: {
 const ModeContext = createContext(INIT_STATE);
 
 function ModeProvider({ children }: { children: ReactNode }) {
-    const [mode, setMode] = useState<"light" | "dark">("light");
+    const [mode, setMode] = useState<"light" | "dark">(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") return savedTheme;
+        else return "light";
+    });
+
+    useEffect(() => {
+        localStorage.setItem("theme", mode);
+    }, [mode]);
 
     return (
         <ModeContext.Provider value={{ mode, setMode }}>

@@ -44,19 +44,6 @@ function FormDialog({
                 }}
                 keepMounted
                 aria-describedby="form-dialog-slide"
-                // slotProps={{
-                //     paper: {
-                //         component: "form",
-                //         onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-                //             event.preventDefault();
-                //             const formData = new FormData(event.currentTarget);
-                //             const formJson = Object.fromEntries(
-                //                 formData.entries()
-                //             );
-                //             onCloseDialog();
-                //         },
-                //     },
-                // }}
             >
                 <DialogTitle
                     sx={{
@@ -68,7 +55,11 @@ function FormDialog({
                     <EditIcon /> Edit inventory item
                 </DialogTitle>
                 <DialogContent>
-                    <InventoryForm inventory={inventory}>
+                    <InventoryForm
+                        inventory={inventory}
+                        onCloseDialog={onCloseDialog}
+                        key={inventory?.$updatedAt}
+                    >
                         <DialogActions
                             sx={{
                                 p: "1.4rem",
@@ -84,9 +75,9 @@ function FormDialog({
                                 Cancel
                             </Button>
                             <Button
-                                onClick={onCloseDialog}
                                 variant="contained"
                                 color="success"
+                                type="submit"
                             >
                                 Edit
                             </Button>

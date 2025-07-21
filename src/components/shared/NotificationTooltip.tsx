@@ -39,10 +39,8 @@ function NotificationTooltip({ color }: NotificationTooltipProps) {
         return <Spinner size={25} />;
 
     const isNoNotification =
-        !expireSoonInventory ||
-        !expiredInventory ||
-        !expireSoonInventory?.total ||
-        !expiredInventory?.total;
+        (!expireSoonInventory || !expireSoonInventory?.total) &&
+        (!expiredInventory || !expiredInventory?.total);
     let notificationContent: ReactNode;
 
     if (isNoNotification)

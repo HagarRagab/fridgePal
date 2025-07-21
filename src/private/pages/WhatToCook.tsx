@@ -1,16 +1,16 @@
 import { Grid } from "@mui/material";
 import type { Models } from "appwrite";
 
-import PageContainer from "../../components/dashboard/PageContainer";
-import RecipeCard from "../../components/dashboard/RecipeCard";
-import type { TRecipe } from "../../types";
 import CardsGroup from "../../components/dashboard/CardsGroup";
-import Spinner from "../../components/shared/Spinner";
-import { useRecipes } from "../../hooks/useRecipes";
 import NavTabs from "../../components/dashboard/NavTabs";
+import PageContainer from "../../components/dashboard/PageContainer";
 import PageTitle from "../../components/dashboard/PageTitle";
-import { useGetCurrentUser } from "../../hooks/useGetCurrentUser";
+import RecipeCard from "../../components/dashboard/RecipeCard";
 import NoResult from "../../components/shared/NoResult";
+import Spinner from "../../components/shared/Spinner";
+import { useGetCurrentUser } from "../../hooks/useGetCurrentUser";
+import { useRecipes } from "../../hooks/useRecipes";
+import type { TRecipe } from "../../types";
 
 function WhatToCook() {
     const { currentUser, isLoading: isLoadingUser } = useGetCurrentUser();

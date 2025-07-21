@@ -29,9 +29,14 @@ import { useAuthContext } from "../../context/AuthContext";
 type InventoryFormProps = {
     children: ReactNode;
     inventory?: Models.Document;
+    onCloseDialog?: () => void;
 };
 
-function InventoryForm({ children, inventory }: InventoryFormProps) {
+function InventoryForm({
+    children,
+    inventory,
+    onCloseDialog,
+}: InventoryFormProps) {
     const { categories, isLoading: isLoadingCategories } = useCategories();
 
     const { inventoryMutation } = useInventoryItem(
@@ -67,6 +72,7 @@ function InventoryForm({ children, inventory }: InventoryFormProps) {
             userId: user.account_id,
         });
         reset();
+        if (onCloseDialog) onCloseDialog();
     };
 
     return (
@@ -109,27 +115,29 @@ function InventoryForm({ children, inventory }: InventoryFormProps) {
                         required: "Please select a category",
                     }}
                     name="category"
-                    render={({ field: { value, onChange } }) => (
-                        <Select
-                            labelId="select-category-label"
-                            id="category"
-                            label={errors.category ? "Error" : "Category"}
-                            value={value}
-                            onChange={onChange}
-                            disabled={isLoadingCategories}
-                        >
-                            {categories?.documents.map(
-                                (category: Models.Document) => (
-                                    <MenuItem
-                                        key={category.$id}
-                                        value={category.$id}
-                                    >
-                                        {category.name}
-                                    </MenuItem>
-                                )
-                            )}
-                        </Select>
-                    )}
+                    render={({ field: { value, onChange } }) => {
+                        return (
+                            <Select
+                                labelId="select-category-label"
+                                id="category"
+                                label={errors.category ? "Error" : "Category"}
+                                value={value}
+                                onChange={onChange}
+                                disabled={isLoadingCategories}
+                            >
+                                {categories?.documents.map(
+                                    (category: Models.Document) => (
+                                        <MenuItem
+                                            key={category.$id}
+                                            value={category.$id}
+                                        >
+                                            {category.name}
+                                        </MenuItem>
+                                    )
+                                )}
+                            </Select>
+                        );
+                    }}
                 />
                 <FormHelperText>
                     {errors?.category?.message
